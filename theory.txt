@@ -1,4 +1,4 @@
 Qué es un API Rest?
 API de RESTful es una interfaz de programación de aplicaciones (API o API web) que se ajusta a los límites de la arquitectura REST y permite la interacción con los servicios web de RESTful. El informático Roy Fielding es el creador de la transferencia de estado representacional (REST).
-Básicamente es la conexión entre el usuario, el front y el back, es decir, la comunicación entre 'robot'
+Básicamente es la conexión o comunicación entre el usuario, el frontend y el backend
 API Rest != servidor 
