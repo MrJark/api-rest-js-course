@@ -1,0 +1,32 @@
+
+body {
+    background: #252525;
+    display: grid;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+    color: #f0f8ff;
+    letter-spacing: 3px;
+    
+}
+.reload-btn {
+    width: 150px;
+    height: 40px;
+    justify-self: center;
+    margin-bottom: 24px;
+    border-radius: 20px;
+    background: #f0f8ff;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+.cats {
+    display: grid;
+    justify-content: center;
+}
+.cats img{
+    width: 700px;
+
+}
