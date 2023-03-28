@@ -4,23 +4,39 @@ body {
     display: grid;
     justify-content: center;
 }
-h1 {
+h1,
+h2 {
     text-align: center;
     color: #f0f8ff;
     letter-spacing: 3px;
     
 }
-.reload-btn {
-    width: 150px;
-    height: 40px;
+.btns {
+    display: flex;
+    justify-content: center;
+}
+.btn {
     justify-self: center;
     margin-bottom: 24px;
     border-radius: 20px;
-    background: #f0f8ff;
-    color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
+    
+}
+.reload-btn{
     letter-spacing: 3px;
+    width: 150px;
+    height: 40px;
+    background: #f0f8ff;
+    color: black;
+}
+.saveMichi{
+    align-self: center;
+    letter-spacing: 1px;
+    width: 120px;
+    height: 30px;
+    background: #ffcece;
+    color: black;
 }
 .cats {
     display: grid;
