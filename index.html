@@ -10,22 +10,24 @@
 <body>
     <h1>Michis' App</h1>
 
+    <span id="error"></span>
+
     <section id="randomMichis">
         <h2>Random Michis</h2>
         <article>
             <div class="btns">
-                <button onclick="reload()" class="btn reload-btn">New Image</button>
-                <button class="btn saveMichi">Save to Fav</button>
+                <button onclick="loadRandomMichis()" class="btn reload-btn">New Image</button>
+                <button onclick="saveFavMichis()" class="btn saveMichi">Save to Fav</button>
             </div>
             <div class="cats">
-                <img src="" alt="foto de gatos aleatorio">
+                <img id="random-img" alt="foto de gatos aleatorio">
             </div>
         </article>
     </section>
 
     <section class="favoritesMichis">
         <h2>Favourites Michis</h2>
-        <img src="" alt="foto de gato aleatorio en fav">
+        <img id="favourite-img" alt="foto de gato aleatorio en fav">
     </section>
 
     <script src="/main.js"></script>

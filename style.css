@@ -23,6 +23,9 @@ h2 {
     font-weight: 600;
     
 }
+.btn:hover {
+    cursor: pointer;
+}
 .reload-btn{
     letter-spacing: 3px;
     width: 150px;
