@@ -46,6 +46,27 @@ h2 {
     justify-content: center;
 }
 .cats img{
-    width: 700px;
-
+    width: 400px;
+}
+#favoritesMichis article{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+#favoritesMichis img{
+    width: 400px;
+}
+#favoritesMichis button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    justify-self: center;
+    margin-top: 8px;
+    background: #f0f8ff;
+    color: black;
+    font-weight: 700;
+}
+#favoritesMichis button:hover {
+    cursor: pointer;
 }

@@ -6,6 +6,7 @@ const api_url_favourites = 'https://api.thecatapi.com/v1/favourites?api_key=live
 
 const spanError = document.getElementById('error');
 
+//Formas alternativas de crear las funciones
 // fetch(api_url)
 //     .then(resp => resp.json())
 //     .then(data => {
@@ -59,6 +60,22 @@ async function loadFavouritesMichis() {
 
     if(res.status !== 200) {
         spanError.innerHTML = "Hubo un error: " + res.status;
+    } else {
+        data.forEach(michi => {
+            //estamos creadon el article para los elementos fav desde js
+            const section = document.getElementById('favoritesMichis');
+            const article = document.createElement('article');
+            const img = document.createElement('img');
+            const btn = document.createElement('button');
+            const btnText = document.createTextNode('Remove to Fav');
+
+            btn.appendChild(btnText);//le añadimos al botón el text con appendChild
+            img.src = michi.image.url;
+            article.appendChild(img);//añadimos al article la imagen y el btn con el appendChild
+            article.appendChild(btn);
+            section.appendChild(article);
+
+        });
     }
 }
 
@@ -66,13 +83,21 @@ async function saveFavMichis() {
     const res = await fetch (api_url_favourites, {
         method: 'POST',
         headers: {
+            // 'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om',
             "content-type": "application/json",
         },
         body: JSON.stringify({
-            image_id: 'cb2'
+            image_id: 'id'
         }),
     });
     const data = await res.json();
+
+    console.log('save');
+    console.log(res);
+
+    if(res.status !== 200){
+        spanError.innerHTML = "Hubo un error: " + res.status;
+    }
 }
 
 loadRandomMichis();
