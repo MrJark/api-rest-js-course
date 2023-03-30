@@ -47,6 +47,7 @@ async function loadRandomMichis() {
         const img = document.getElementById('random-img');
         img.src = data[0].url;
     }
+    console.log(data);
 }
 
 //para guardar michis en fav
@@ -65,10 +66,10 @@ async function saveFavMichis() {
     const res = await fetch (api_url_favourites, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            "content-type": "application/json",
         },
         body: JSON.stringify({
-            image_id: 12
+            image_id: 'cb2'
         }),
     });
     const data = await res.json();
