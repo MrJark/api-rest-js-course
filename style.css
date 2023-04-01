@@ -33,7 +33,7 @@ h2 {
     background: #f0f8ff;
     color: black;
 }
-.saveMichi{
+#saveMichi{
     align-self: center;
     letter-spacing: 1px;
     width: 120px;

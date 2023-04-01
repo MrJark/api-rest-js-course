@@ -46,7 +46,11 @@ async function loadRandomMichis() {
         spanError.innerHTML = "Hubo un error: " + res.status;
     }else {
         const img = document.getElementById('random-img');
+        const btnSave = document.getElementById('saveMichi');
+
         img.src = data[0].url;
+
+        btnSave.onclick = () => saveFavMichis(data[0].id);//con esto conseguimos extraer la inf del id que hace falta más abajo para la función de saveFavMichi
     }
     console.log(data);
 }
@@ -79,7 +83,7 @@ async function loadFavouritesMichis() {
     }
 }
 
-async function saveFavMichis() {
+async function saveFavMichis(id) {
     const res = await fetch (api_url_favourites, {
         method: 'POST',
         headers: {
@@ -87,7 +91,7 @@ async function saveFavMichis() {
             "content-type": "application/json",
         },
         body: JSON.stringify({
-            image_id: 'id'
+            image_id: id
         }),
     });
     const data = await res.json();
