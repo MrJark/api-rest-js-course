@@ -3,6 +3,7 @@ body {
     background: #252525;
     display: grid;
     justify-content: center;
+    color: #f0f8ff;
 }
 h1,
 h2 {
@@ -48,6 +49,12 @@ h2 {
 .cats img{
     width: 400px;
 }
+#uploadingForm {
+    display: grid;
+    justify-content: center;
+}
+
+
 #favoritesMichis article{
     display: grid;
     justify-content: center;
