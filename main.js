@@ -146,5 +146,12 @@ async function deleteFavMichi(id) {
     }
 }
 
+asyn function uploadMichiImg() {
+    const form = document.getElementById('uploadingForm');
+    const formData = new FormData(form);
+
+    const res = await fetch()
+}
+
 loadRandomMichis();
 loadFavouritesMichis();
