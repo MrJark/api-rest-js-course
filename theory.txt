@@ -2,3 +2,12 @@ Qué es un API Rest?
 API de RESTful es una interfaz de programación de aplicaciones (API o API web) que se ajusta a los límites de la arquitectura REST y permite la interacción con los servicios web de RESTful. El informático Roy Fielding es el creador de la transferencia de estado representacional (REST).
 Básicamente es la conexión o comunicación entre el usuario, el frontend y el backend
 API Rest != servidor 
+
+Headers en un API, qué son?
+
+El las APIs, el body es la información que le vamos a comunicar al backend, no solo la que le vamos a enseñar a los usuarios.
+Los headers nos ayudan a decirle al backend que tipo de información le estamos enviando y cómo debe devolvernos la respuesta
+    Url tipos de headers: 
+        https://apipheny.io/api-headers/
+        https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+

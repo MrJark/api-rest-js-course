@@ -1,10 +1,10 @@
 
 //Url general
-const api_url = 'https://api.thecatapi.com/v1/images/search?api_key=live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om';
+const api_url = 'https://api.thecatapi.com/v1/images/search';
 //url para guardar los michis en favs
-const api_url_favourites = 'https://api.thecatapi.com/v1/favourites?api_key=live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om';
+const api_url_favourites = 'https://api.thecatapi.com/v1/favourites';
 //url para eliminar los michis en favs. Lo colocamos así porque por cada id específico hay una url específica y de esta manera hacemos el strig dinámico (aunque es una arrow function)
-const api_url_delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om`;
+const api_url_delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 
 
 const spanError = document.getElementById('error');
@@ -61,7 +61,12 @@ async function loadRandomMichis() {
 //para guardar michis en fav
 
 async function loadFavouritesMichis() {
-    const res = await fetch(api_url_favourites);
+    const res = await fetch(api_url_favourites, {
+        method: 'GET',
+        headers: {
+            'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om'
+        },
+    });
     const data = await res.json();
     console.log(data);
 
@@ -99,7 +104,7 @@ async function saveFavMichis(id) {
     const res = await fetch (api_url_favourites, {
         method: 'POST',
         headers: {
-            // 'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om',
+            'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om',
             "content-type": "application/json",
         },
         body: JSON.stringify({
@@ -124,6 +129,9 @@ async function saveFavMichis(id) {
 async function deleteFavMichi(id) {
     const res = await fetch(api_url_delete(id), {
         method: 'DELETE',
+        headers: {
+            'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om',
+        },
     });
     const data = await res.json();
 
@@ -134,7 +142,7 @@ async function deleteFavMichi(id) {
         spanError.innerHTML = "Hubo un error: " + res.status;
     } else {
         console.log('Michi eliminado de Fav');
-        loadFavouritesMichis();
+        loadFavouritesMichis();//llamamos aquí a esta funciópn para que cuando se ejecute esta función tb se recarge la página
     }
 }
 
