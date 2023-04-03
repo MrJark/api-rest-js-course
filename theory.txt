@@ -3,6 +3,8 @@ API de RESTful es una interfaz de programación de aplicaciones (API o API web) 
 Básicamente es la conexión o comunicación entre el usuario, el frontend y el backend
 API Rest != servidor 
 
+Url de la API: https://documenter.getpostman.com/view/5578104/RWgqUxxh#intro
+
 Headers en un API, qué son?
 
 El las APIs, el body es la información que le vamos a comunicar al backend, no solo la que le vamos a enseñar a los usuarios.

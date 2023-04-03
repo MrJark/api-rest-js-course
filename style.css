@@ -53,8 +53,16 @@ h2 {
     display: grid;
     justify-content: center;
 }
-
-
+#uploadingForm input {
+    margin-bottom: 12px;
+}
+#btn-form{
+    letter-spacing: 3px;
+    width: 100px;
+    height: 40px;
+    background: #f0f8ff;
+    color: black;
+}
 #favoritesMichis article{
     display: grid;
     justify-content: center;

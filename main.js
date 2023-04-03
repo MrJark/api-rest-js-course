@@ -5,7 +5,8 @@ const api_url = 'https://api.thecatapi.com/v1/images/search';
 const api_url_favourites = 'https://api.thecatapi.com/v1/favourites';
 //url para eliminar los michis en favs. Lo colocamos así porque por cada id específico hay una url específica y de esta manera hacemos el strig dinámico (aunque es una arrow function)
 const api_url_delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
-
+//url para subir tus propias imgs
+const api_url_upload = 'https://api.thecatapi.com/v1/images/upload';
 
 const spanError = document.getElementById('error');
 
@@ -146,11 +147,18 @@ async function deleteFavMichi(id) {
     }
 }
 
-asyn function uploadMichiImg() {
+async function uploadMichiImg() {
     const form = document.getElementById('uploadingForm');
     const formData = new FormData(form);
 
-    const res = await fetch()
+    const res = await fetch(api_url_upload, {
+        method: 'POST',
+        headers: {
+            'x-api-key': 'live_bKskKbQpYZtsR4DBNUTzV9XJo2tqNGK0iUdj8wWh5am9z504w6QA6I4mBn1Z92om',
+            // 'Content-Type': 'multipart/form-data',
+        },
+        body: formData, 
+    })
 }
 
 loadRandomMichis();
