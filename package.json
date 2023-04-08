@@ -1,0 +1,19 @@
+{
+  "name": "api-rest-js-course",
+  "version": "1.0.0",
+  "description": "Movie app",
+  "main": "index-1.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrJark/api-rest-js-course.git"
+  },
+  "author": "@mrjark_",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrJark/api-rest-js-course/issues"
+  },
+  "homepage": "https://github.com/MrJark/api-rest-js-course#readme"
+}
