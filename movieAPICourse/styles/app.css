@@ -1,9 +1,76 @@
 
-/* font-family: 'Ubuntu', sans-serif; */
-/* font-family: 'IBM Plex Sans', sans-serif; */
+/* font-family: 'Red Hat Display', sans-serif;
+font-family: 'Ubuntu', sans-serif; */
+* { box-sizing: border-box; }
+
+:root {
+
+    --letter-dark: #333333;
+    --letter-light: #f5f5f5;
+
+    --primary: #8CD0D1;
+    --secondary: #DB8958;
+
+    --primary-light-1:#c5e7e8 ;
+    --primary-light-2:#a7dbdc ;
+    --primary-medium-1:#50b7b9 ;
+    --primary-medium-2:#348283 ;
+    --primary-dark-1:#173a3a ;
+    --primary-dark-2:#0c1d1d ;
+
+    --secondary-light-1:#edc3ab ;
+    --secondary-light-2:#e6ab89 ;
+    --secondary-medium-1:#ca652b ;
+    --secondary-medium-2:#a85424 ;
+    --secondary-dark-1:#542a12 ;
+    --secondary-dark-2:#221107 ;
+
+    --background-dark: #171618;
+    --grey-1: #262729;
+    --grey-2: #454649;
+    --grey-3: #65666A;
+    --grey-4: #7D7F86;
+
+    --category-action: #9F96D6;
+    --category-comedy: #D6BC96;
+    --category-drama: #D69696;
+    --category-thriller: #96C7D6;
+    --category-adventure: #D696CC;
+    --category-fantasy: #C5D696;
+    --category-animation: #96D6A4;
+    --category-scary: #CC5E5E;
+    --category-dystopia: #96D6C3;
+
+    --font-family-titles: 'Ubuntu', sans-serif;
+    --font-family-text: 'Red Hat Display', sans-serif;
+
+    --font-wight-title1: 500;
+    --font-wight-title2: 700;
+    --font-wight-text1: 400;
+    --font-wight-text2: 500;
+}
+html {
+    background-color: var(--primary-dark-1);
+}
 body {
     margin: 0;
     padding: 0;
-    background: rgb(47, 45, 47);
-    color: #f0f8ff;
+    background-color: var(--background-dark);
+    color: var(--letter-light);
+    font-family: var(--font-family-text);
+    font-weight: var(--font-wight-text1);
+    font-size: 16px;
+    margin: 4px 0 0 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+h1, h2 {
+    font-size: 24px;
+    color: var(--primary-light-2);
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-wight-title1);
 }
