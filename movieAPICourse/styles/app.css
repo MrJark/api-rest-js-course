@@ -17,6 +17,7 @@ font-family: 'Ubuntu', sans-serif; */
     --primary-medium-2:#348283 ;
     --primary-dark-1:#173a3a ;
     --primary-dark-2:#0c1d1d ;
+    --primary-dark-3:#011111 ;
 
     --secondary-light-1:#edc3ab ;
     --secondary-light-2:#e6ab89 ;
@@ -40,6 +41,7 @@ font-family: 'Ubuntu', sans-serif; */
     --category-animation: #96D6A4;
     --category-scary: #CC5E5E;
     --category-dystopia: #96D6C3;
+    --category-love: #d170b9;
 
     --font-family-titles: 'Ubuntu', sans-serif;
     --font-family-text: 'Red Hat Display', sans-serif;
@@ -50,17 +52,17 @@ font-family: 'Ubuntu', sans-serif; */
     --font-wight-text2: 500;
 }
 html {
-    background-color: var(--primary-dark-1);
+    background-color: var(--primary-dark-3);
 }
 body {
     margin: 0;
     padding: 0;
     background-color: var(--background-dark);
     color: var(--letter-light);
+    /* height: 100%; */
     font-family: var(--font-family-text);
     font-weight: var(--font-wight-text1);
     font-size: 16px;
-    margin: 4px 0 0 0;
     padding: 0;
 }
 
@@ -73,4 +75,17 @@ h1, h2 {
     color: var(--primary-light-2);
     font-family: var(--font-family-titles);
     font-weight: var(--font-wight-title1);
+}
+
+
+/* Class Styles */
+.header-title {
+    background: linear-gradient(var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Inactive */
+.inactive {
+    display: none;
 }
