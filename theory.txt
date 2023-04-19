@@ -13,3 +13,7 @@ Los headers nos ayudan a decirle al backend que tipo de información le estamos 
         https://apipheny.io/api-headers/
         https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
 
+---
+
+He copiado gran parte del código del ejemplo de Juan DC de Platzi para hacer el curso de api rest practico donde cogemos el api de 'the movie db'
+El código está aquí: https://github.com/platzi/curso-api-rest-javascript-practico/tree/5e56d4c09b3eaa8322ce01814ade000aa28a92ed

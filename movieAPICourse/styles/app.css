@@ -17,7 +17,7 @@ font-family: 'Ubuntu', sans-serif; */
     --primary-medium-2:#348283 ;
     --primary-dark-1:#173a3a ;
     --primary-dark-2:#0c1d1d ;
-    --primary-dark-3:#011111 ;
+    --primary-dark-3-html:#011111 ;
 
     --secondary-light-1:#edc3ab ;
     --secondary-light-2:#e6ab89 ;
@@ -52,12 +52,12 @@ font-family: 'Ubuntu', sans-serif; */
     --font-wight-text2: 500;
 }
 html {
-    background-color: var(--primary-dark-3);
+    background: var(--primary-dark-3-html);
 }
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background-dark);
+    background: var(--background-dark);
     color: var(--letter-light);
     /* height: 100%; */
     font-family: var(--font-family-text);
@@ -75,15 +75,118 @@ h1, h2 {
     color: var(--primary-light-2);
     font-family: var(--font-family-titles);
     font-weight: var(--font-wight-title1);
+    margin: 0;
+    padding: 0;   
+}
+h2 {
+    font-size: 18px;
+    color: var(--primary-dark-2);
+    font-weight: var(--font-wight-title2);
+}
+h3 {
+    font-size: 16px;
+    color: var(--primary-dark-1);
+    font-weight: var(--font-wight-text2);
+}
+input {
+    background: var(--primary-light-2);
+    color: var(--primary-medium-2);
+    border: none;
+    font-size: 18px;
+    padding-left: 16px;
+}
+input::placeholder {
+    color: var(--primary-light-1);
+    font-family: var(--font-family-text);
+}
+button {
+    background: var(--primary-dark-2);
+    border: none;
+    color: var(--primary-light-2);
+    font-weight: var(--font-wight-text2);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Class Styles */
+
+.header-container, .trendingPreview-header, .categoriesPreview-container {
+    padding: 0 24px;
+}
+.trendingPreview-container, .categoriesPreview-container, footer {
+    margin-top: 48px;
+}
+.trendingPreview-header, .categoriesPreview-title {
+    margin-bottom: 24px;
+}
+.movie-container {
+    cursor: pointer;
+}
+.movie-img {
+    border-radius: 8px;
+}
+.categoriesPreview-list, .categories-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 
-/* Class Styles */
+/* Header */
+.header-container {
+    padding-top: 40px;
+}
+.header-container--long {
+    background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+    background-size: cover !important;
+    height: 480px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.header-container--categoryView {
+    background: linear-gradient(180deg, rgba(238, 204, 117, 0.5) 0%, rgba(238, 204, 117, 0) 72.92%);
+} 
 .header-title {
-    background: linear-gradient(var(--primary), var(--secondary));
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 40%);
     -webkit-background-clip: text;
     color: transparent;
 }
+.header-arrow {
+    font-weight: var(--font-weight-text2);
+    font-size: 36px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+/* .header-arrow--white {
+    color: var(--purple-light-1);
+} */
+.header-searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+  
+.header-searchForm input {
+    height: 48px;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.header-searchForm button {
+    width: 56px;
+    height: 48px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
 
 /* Inactive */
 .inactive {
