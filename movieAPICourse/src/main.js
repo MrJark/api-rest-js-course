@@ -20,7 +20,8 @@ async function getTrendingMoviesPreview () {
         
         movieContainer.appendChild(movieImg);
         trendingPreviewMoviesContainer.appendChild(movieContainer); //permite traer al contenedor de películas 
-
+        
+        
     });
 
 }
