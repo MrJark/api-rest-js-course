@@ -33,16 +33,26 @@ font-family: 'Ubuntu', sans-serif; */
     --grey-3: #65666A;
     --grey-4: #7D7F86;
 
-    --category-action: #9F96D6;
-    --category-comedy: #D6BC96;
-    --category-drama: #D69696;
-    --category-thriller: #96C7D6;
-    --category-adventure: #D696CC;
-    --category-fantasy: #C5D696;
-    --category-animation: #96D6A4;
-    --category-scary: #CC5E5E;
-    --category-dystopia: #96D6C3;
-    --category-love: #d170b9;
+    --category-1: #9F96D6;
+    --category-2: #D6BC96;
+    --category-3: #D69696;
+    --category-4: #96C7D6;
+    --category-5: #D696CC;
+    --category-6: #C5D696;
+    --category-7: #96D6A4;
+    --category-8: #CC5E5E;
+    --category-9: #96D6C3;
+    --category-10: #d170b9;
+    --categoty-11: #73546b ;
+    --categoty-12: #4d927d ;
+    --categoty-13: #63c5e3 ;
+    --categoty-14: #50f073 ;
+    --category-1: #5f51bd;
+    --categoty-15: #eb3838 ;
+    --categoty-16: #e320b2 ;
+    --categoty-17: #d1f0e7 ;
+    --categoty-18: #a9cc4a ;
+    --categoty-18: #e0e9c7 ;
 
     --font-family-titles: 'Ubuntu', sans-serif;
     --font-family-text: 'Red Hat Display', sans-serif;
@@ -290,25 +300,25 @@ button {
     width: 8px;
     height: 8px;
 }
-  #id28 { --idColor: var(--yellow); }
-  #id12 { --idColor: var(--red); }
-  #id16 { --idColor: var(--green); }
-  #id35 { --idColor: var(--lightBlue); }
-  #id80 { --idColor: var(--darkBlue); }
-  #id99 { --idColor: var(--purple-dark-1); }
-  #id18 { --idColor: var(--purple-medium-1); }
-  #id10751 { --idColor: var(--yellow); }
-  #id14 { --idColor: var(--red); }
-  #id36 { --idColor: var(--green); }
-  #id27 { --idColor: var(--lightBlue); }
-  #id10402 { --idColor: var(--darkBlue); }
-  #id9648 { --idColor: var(--purple-dark-1); }
-  #id10749 { --idColor: var(--purple-medium-1); }
-  #id878 { --idColor: var(--yellow); }
-  #id10770 { --idColor: var(--red); }
-  #id53 { --idColor: var(--green); }
-  #id10752 { --idColor: var(--lightBlue); }
-  #id37 { --idColor: var(--darkBlue); }
+  #id28 { --idColor: var(--category-1); }
+  #id12 { --idColor: var(--category-2); }
+  #id16 { --idColor: var(--category-3); }
+  #id35 { --idColor: var(--category-4); }
+  #id80 { --idColor: var(--category-5); }
+  #id99 { --idColor: var(--category-6); }
+  #id18 { --idColor: var(--category-7); }
+  #id10751 { --idColor: var(--category-8); }
+  #id14 { --idColor: var(--category-9); }
+  #id36 { --idColor: var(--category-10); }
+  #id27 { --idColor: var(--categoty-11); }
+  #id10402 { --idColor: var(--categoty-12); }
+  #id9648 { --idColor: var(--categoty-13); }
+  #id10749 { --idColor: var(--categoty-14); }
+  #id878 { --idColor: var(--categoty-15); }
+  #id10770 { --idColor: var(--categoty-16); }
+  #id53 { --idColor: var(--categoty-17); }
+  #id10752 { --idColor: var(--categoty-18); }
+  #id37 { --idColor: var(--category-19); }
 
 /* Generic List (search, trending & category) */
 .genericList-container {

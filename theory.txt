@@ -12,6 +12,9 @@ Los headers nos ayudan a decirle al backend que tipo de información le estamos 
     Url tipos de headers: 
         https://apipheny.io/api-headers/
         https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+        
+    Url de la introducción a los comandos de la API
+        https://developers.themoviedb.org/3/getting-started/introduction
 
 ---
 
