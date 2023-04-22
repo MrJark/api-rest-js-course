@@ -101,14 +101,14 @@ h3 {
     font-weight: var(--font-weight-text2);
 }
 input {
-    background: var(--primary-light-2);
-    color: var(--primary-medium-2);
+    background: var(--secondary-light-2);
+    color: var(--letter-dark);
     border: none;
     font-size: 18px;
     padding-left: 16px;
 }
 input::placeholder {
-    color: var(--primary-light-1);
+    color: var(--letter-dark);
     font-family: var(--font-family-text);
 }
 button {
