@@ -21,16 +21,35 @@ async function getTrendingMoviesPreview () {
         movieContainer.appendChild(movieImg);
         trendingPreviewMoviesContainer.appendChild(movieContainer); //permite traer al contenedor de películas 
         
-        
     });
+};
 
-}
 
-async function getCategoriesPreview () {
+
+async function getCategoriesPreview () { //la construcción de esta lista es casi igual a la anterior
     const res = await fetch (urlAPI + '/genre/movie/list' + API_KEY_all);
     const data = await res.json();
-    const categoryContainer = document.createElement('div');
 
-}
+    const categories = data.genres;
+
+    categories.forEach(categories => {
+        const previewCategoriesContainer = document.querySelector('#categoriesPreview .categoriesPreview-list');
+        
+        const categoryContainer = document.createElement('div');
+        categoryContainer.classList.add('category-container');
+
+        const categoryTile = document.createElement('h3');
+        categoryTile.classList.add('category-title');
+        categoryTile.setAttribute('id', 'id' + categories.id);
+        const categoryTileText = document.createTextNode(categories.name); //para crear el texto de la categoría
+    
+        //estas 3 lineas son para añadir al html los elementos creados a partir de js y la api
+        categoryTile.appendChild(categoryTileText);//para añadi el name al categoryTitle
+        categoryContainer.appendChild(categoryTile); //para añadir el categoryTitle al contenedor de categorias
+        previewCategoriesContainer.appendChild(categoryContainer); //añadir el contenedor de category al preview
+    });
+
+};
 
 getTrendingMoviesPreview();
+getCategoriesPreview();

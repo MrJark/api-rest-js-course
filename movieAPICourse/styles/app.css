@@ -43,16 +43,16 @@ font-family: 'Ubuntu', sans-serif; */
     --category-8: #CC5E5E;
     --category-9: #96D6C3;
     --category-10: #d170b9;
-    --categoty-11: #73546b ;
-    --categoty-12: #4d927d ;
-    --categoty-13: #63c5e3 ;
-    --categoty-14: #50f073 ;
+    --category-11: #73546b ;
+    --category-12: #4d927d ;
+    --category-13: #63c5e3 ;
+    --category-14: #50f073 ;
     --category-1: #5f51bd;
-    --categoty-15: #eb3838 ;
-    --categoty-16: #e320b2 ;
-    --categoty-17: #d1f0e7 ;
-    --categoty-18: #a9cc4a ;
-    --categoty-18: #e0e9c7 ;
+    --category-15: #eb3838 ;
+    --category-16: #e320b2 ;
+    --category-17: #d1f0e7 ;
+    --category-18: #a9cc4a ;
+    --category-19: #e0e9c7 ;
 
     --font-family-titles: 'Ubuntu', sans-serif;
     --font-family-text: 'Red Hat Display', sans-serif;
@@ -168,7 +168,7 @@ button {
 } 
 .header-title {
     margin-bottom: 16px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 40%);
+    background: linear-gradient(90deg, var(--primary) 20%, var(--secondary) 60%);
     -webkit-background-clip: text;
     color: transparent;
     letter-spacing: 1px;
@@ -310,14 +310,14 @@ button {
   #id10751 { --idColor: var(--category-8); }
   #id14 { --idColor: var(--category-9); }
   #id36 { --idColor: var(--category-10); }
-  #id27 { --idColor: var(--categoty-11); }
-  #id10402 { --idColor: var(--categoty-12); }
-  #id9648 { --idColor: var(--categoty-13); }
-  #id10749 { --idColor: var(--categoty-14); }
-  #id878 { --idColor: var(--categoty-15); }
-  #id10770 { --idColor: var(--categoty-16); }
-  #id53 { --idColor: var(--categoty-17); }
-  #id10752 { --idColor: var(--categoty-18); }
+  #id27 { --idColor: var(--category-11); }
+  #id10402 { --idColor: var(--category-12); }
+  #id9648 { --idColor: var(--category-13); }
+  #id10749 { --idColor: var(--category-14); }
+  #id878 { --idColor: var(--category-15); }
+  #id10770 { --idColor: var(--category-16); }
+  #id53 { --idColor: var(--category-17); }
+  #id10752 { --idColor: var(--category-18); }
   #id37 { --idColor: var(--category-19); }
 
 /* Generic List (search, trending & category) */
