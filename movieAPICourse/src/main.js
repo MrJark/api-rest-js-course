@@ -1,15 +1,31 @@
 
+const api = axios.create({
+    baseURL: 'https://api.themoviedb.org/3',
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+    },
+    params: {
+        'api_key': API_KEY_n //tenía que poner solo los números y no " ?api_key= " al inicio ya que pre supone que va el api_key
+    },
+});
+
 const urlAPI = 'https://api.themoviedb.org/3';
 const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
 async function getTrendingMoviesPreview () {
-    const res = await fetch (urlAPI + '/trending/movie/day' + API_KEY_all);
-    const data = await res.json();
-    const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
-
+    //AXIOS
+    const { data } = await api('/trending/movie/day');
     const movies = data.results;
-    console.log(data, movies);
+
+    //SIN AXIOS
+    // const res = await fetch (urlAPI + '/trending/movie/day' + API_KEY_all);
+    // const data = await res.json();
+    // const movies = data.results;
+    // console.log(data, movies);
     movies.forEach(movie => {
+
+        const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
+        
         const movieContainer = document.createElement('div'); //para crear el elemento que necesitas. Un div por cada película
         movieContainer.classList.add('movie-container'); //para dar la clase movi-container a la variable y que el css funcione, sino no tendría estilos
     
@@ -24,11 +40,13 @@ async function getTrendingMoviesPreview () {
     });
 };
 
-
-
 async function getCategoriesPreview () { //la construcción de esta lista es casi igual a la anterior
-    const res = await fetch (urlAPI + '/genre/movie/list' + API_KEY_all);
-    const data = await res.json();
+    //AXIOS
+    const { data } = await api('genre/movie/list');
+    
+    //SIN AXIOS
+    // const res = await fetch (urlAPI + '/genre/movie/list' + API_KEY_all);
+    // const data = await res.json();
 
     const categories = data.genres;
 
