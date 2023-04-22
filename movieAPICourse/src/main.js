@@ -1,9 +1,9 @@
 
-const urlAPI = 'https://api.themoviedb.org/3/';
+const urlAPI = 'https://api.themoviedb.org/3';
 const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
 async function getTrendingMoviesPreview () {
-    const res = await fetch (urlAPI + 'trending/movie/day' + API_KEY_all);
+    const res = await fetch (urlAPI + '/trending/movie/day' + API_KEY_all);
     const data = await res.json();
     const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
 
@@ -23,6 +23,13 @@ async function getTrendingMoviesPreview () {
         
         
     });
+
+}
+
+async function getCategoriesPreview () {
+    const res = await fetch (urlAPI + '/genre/movie/list' + API_KEY_all);
+    const data = await res.json();
+    const categoryContainer = document.createElement('div');
 
 }
 
