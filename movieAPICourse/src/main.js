@@ -69,5 +69,5 @@ async function getCategoriesPreview () { //la construcción de esta lista es cas
 
 };
 
-getTrendingMoviesPreview();
-getCategoriesPreview();
+// getTrendingMoviesPreview();
+// getCategoriesPreview();

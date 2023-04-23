@@ -16,7 +16,14 @@ Los headers nos ayudan a decirle al backend que tipo de información le estamos 
     Url de la introducción a los comandos de la API
         https://developers.themoviedb.org/3/getting-started/introduction
 
+Location and Hash Navigation
+
+https://developer.mozilla.org/es/docs/Web/API/Location
+https://developer.mozilla.org/es/docs/Web/API/WindowEventHandlers/onhashchange
+
 ---
 
 He copiado gran parte del código del ejemplo de Juan DC de Platzi para hacer el curso de api rest practico donde cogemos el api de 'the movie db'
 El código está aquí: https://github.com/platzi/curso-api-rest-javascript-practico/tree/5e56d4c09b3eaa8322ce01814ade000aa28a92ed
+
+---
