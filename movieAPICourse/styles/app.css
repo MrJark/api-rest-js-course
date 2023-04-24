@@ -148,7 +148,7 @@ button {
 
 /* Header */
 .header-container {
-    padding-top: 20px;
+    padding-top: 12px;
     display: flex;
     justify-content: space-between;
     background: var(--grey-2);
