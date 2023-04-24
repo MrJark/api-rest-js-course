@@ -24,7 +24,8 @@ async function getTrendingMoviesPreview () {
     // console.log(data, movies);
     movies.forEach(movie => {
 
-        const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
+        // const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
+        const trendingMoviesPreviewList = document.querySelector('#trendingPreview .trendingPreview-movieList');
         
         const movieContainer = document.createElement('div'); //para crear el elemento que necesitas. Un div por cada película
         movieContainer.classList.add('movie-container'); //para dar la clase movi-container a la variable y que el css funcione, sino no tendría estilos
@@ -35,7 +36,8 @@ async function getTrendingMoviesPreview () {
         movieImg.setAttribute('src', url_poster_w300 + movie.poster_path); // para llamar a la url donde esté el poster que mide width=300 y a la propiedad de movie poster_path
         
         movieContainer.appendChild(movieImg);
-        trendingPreviewMoviesContainer.appendChild(movieContainer); //permite traer al contenedor de películas 
+        // trendingPreviewMoviesContainer.appendChild(movieContainer); //permite traer al contenedor de películas 
+        trendingMoviesPreviewList.appendChild(movieContainer); //permite traer al contenedor de películas 
         
     });
 };
@@ -51,7 +53,8 @@ async function getCategoriesPreview () { //la construcción de esta lista es cas
     const categories = data.genres;
 
     categories.forEach(categories => {
-        const previewCategoriesContainer = document.querySelector('#categoriesPreview .categoriesPreview-list');
+        // const previewCategoriesContainer = document.querySelector('#categoriesPreview .categoriesPreview-list');
+        const categoriesPreviewList = document.querySelector('#categoriesPreview .categoriesPreview-list');
         
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
@@ -64,7 +67,8 @@ async function getCategoriesPreview () { //la construcción de esta lista es cas
         //estas 3 lineas son para añadir al html los elementos creados a partir de js y la api
         categoryTile.appendChild(categoryTileText);//para añadi el name al categoryTitle
         categoryContainer.appendChild(categoryTile); //para añadir el categoryTitle al contenedor de categorias
-        previewCategoriesContainer.appendChild(categoryContainer); //añadir el contenedor de category al preview
+        // previewCategoriesContainer.appendChild(categoryContainer); //añadir el contenedor de category al preview
+        categoriesPreviewList.appendChild(categoryContainer); //añadir el contenedor de category al preview
     });
 
 };
