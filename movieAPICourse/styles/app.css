@@ -151,7 +151,7 @@ button {
     padding-top: 12px;
     display: flex;
     justify-content: space-between;
-    background: var(--grey-2);
+    background: var(--grey-1);
     border-radius: 0px 0px 12px 12px;
 }
 .header-container--long {
@@ -177,7 +177,7 @@ button {
 .header-arrow {
     font-weight: var(--font-weight-text2);
     font-size: 36px;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     cursor: pointer;
     display: inline-block;
 }
@@ -203,6 +203,10 @@ button {
     height: 48px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+.header-menu {
+    display: flex;
+    align-items: center;
 }
 .header-menu img {
     width: 30px;
@@ -406,7 +410,7 @@ form {
   /* Footer */
 
 footer {
-    background-color: var(--grey-2);
+    background-color: var(--grey-1);
     color: var(--primary);
     font-weight: var(--font-weight-text1);
     text-align: center;
