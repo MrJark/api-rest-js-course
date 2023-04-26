@@ -22,10 +22,13 @@ async function getTrendingMoviesPreview () {
     // const data = await res.json();
     // const movies = data.results;
     // console.log(data, movies);
+
+    trendingMoviesPreviewList.innerHTML = "";
+
     movies.forEach(movie => {
 
         // const trendingPreviewMoviesContainer = document.querySelector('#trendingPreview .trendingPreview-movieList');
-        const trendingMoviesPreviewList = document.querySelector('#trendingPreview .trendingPreview-movieList');
+        // const trendingMoviesPreviewList = document.querySelector('#trendingPreview .trendingPreview-movieList'); //como ya la había definido ya no hace falta otra vez, ademásme duplica todo el contenido
         
         const movieContainer = document.createElement('div'); //para crear el elemento que necesitas. Un div por cada película
         movieContainer.classList.add('movie-container'); //para dar la clase movi-container a la variable y que el css funcione, sino no tendría estilos
@@ -49,12 +52,13 @@ async function getCategoriesPreview () { //la construcción de esta lista es cas
     //SIN AXIOS
     // const res = await fetch (urlAPI + '/genre/movie/list' + API_KEY_all);
     // const data = await res.json();
-
     const categories = data.genres;
+
+    categoriesPreviewList.innerHTML = ""; //esto lo hago para limpiar y que no se me duplique todo cada vez que vuelva al home
 
     categories.forEach(categories => {
         // const previewCategoriesContainer = document.querySelector('#categoriesPreview .categoriesPreview-list');
-        const categoriesPreviewList = document.querySelector('#categoriesPreview .categoriesPreview-list');
+        // const categoriesPreviewList = document.querySelector('#categoriesPreview .categoriesPreview-list'); //lo comeno porque para que no me recargue y me ducplique el contenido
         
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
