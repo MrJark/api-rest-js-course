@@ -65,6 +65,13 @@ function categoryPage(){
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    //con location.hash.split('='); lo que hace es decolvernos un array que es partido por un igual, es decir, cada vez que haya un igual, la url, el hash, se dividirá. En mi caso, como las categorías url + ?#category=Action-28, dividirá por un lado url + category y por otro nombre de la categoria y su id que a su vez tengo que hacer otro location.hash.split('-') para separar el nombre del id
+    const [allURL, categoryData] = location.hash.split('=');
+    const [categoryName, categoryId] = categoryData.split('-');
+
+
+    getMoviesByCtaegory(categoryId);
+
 };
 function searchPage(){
     console.log('Searh Page');

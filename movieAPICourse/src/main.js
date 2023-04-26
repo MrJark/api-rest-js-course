@@ -73,9 +73,28 @@ async function getCategoriesPreview () { //la construcción de esta lista es cas
         categoryContainer.appendChild(categoryTile); //para añadir el categoryTitle al contenedor de categorias
         // previewCategoriesContainer.appendChild(categoryContainer); //añadir el contenedor de category al preview
         categoriesPreviewList.appendChild(categoryContainer); //añadir el contenedor de category al preview
+    
+        //añadir a cada una de las categorías el evento de click para que me lleve a su respectiva pag
+        categoryTile.addEventListener('click', () => { 
+            location.hash = `category=${categories.name}-${categories.id}`; //con esto, hago que me salga en la url la id y el nombre para que sea UX friendly
+        });
     });
 
 };
+
+async function getMoviesByCtaegory () {
+    const { data } = await api('discover/movie', {
+        params: {
+            with_genres: id;
+        },
+    });
+
+    const movies = data.results;
+    genericSection.innerHTML = "";
+    movies.forEach(movie => {
+        
+    });
+}
 
 // getTrendingMoviesPreview();
 // getCategoriesPreview();
