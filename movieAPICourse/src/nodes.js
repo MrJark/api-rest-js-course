@@ -28,3 +28,5 @@ const trendingBtn = $ ('.trendingPreview-btn');
 const movieDetailTitle = $ ('.movieDetail-title');
 const movieDetailDescription = $ ('.movieDetail-description');
 const movieDetailScore = $ ('.movieDetail-score');
+
+const headerTitleMovie4U = $ ('header-title--movie4u');

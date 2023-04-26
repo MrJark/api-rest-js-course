@@ -119,6 +119,10 @@ button {
     font-size: 14px;
     cursor: pointer;
 }
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
 
 /* Class Styles */
 
@@ -181,9 +185,9 @@ button {
     cursor: pointer;
     display: inline-block;
 }
-/* .header-arrow--white {
+.header-arrow--white {
     color: var(--purple-light-1);
-} */
+}
 .header-searchForm {
     display: flex;
     align-items: center;

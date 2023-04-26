@@ -2,6 +2,12 @@
 searchFormBtn.addEventListener('click', () => {
     location.hash = 'search=';
 });
+arrowBtn.addEventListener('click', () => {
+    location.hash = 'home';
+});
+trendingBtn.addEventListener('click', () => {
+    location.hash = 'trends';
+});
 
 window.addEventListener('hashchange', navigator, false);
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -26,19 +32,19 @@ function homePage(){
     console.log('Home Page');
 
     // coloco a cada propiedad a cada una de las secciones para la vista de home
-    headerSection.classList.add('header-container--log');
+    headerSection.classList.remove('header-container--log');
     headerSection.style.background = '';
     arrowBtn.classList.add('inactive'); //no quieres que aparezca la arrow en la home, solo en las otras vistas, por tanto, a aque le pones la clase 'inactive'
+    arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.remove('inactive');
-    arrowBtn.classList.remove('header-arrow--white'); 
     headerCategoryTitle.classList.add('inactive');
     searchForm.classList.remove('inactive');
-
+    
     trendingPreviewSection.classList.remove('inactive');
     categoriesPreviewSection.classList.remove('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
-
+    
     //llamamos aquí a estas funciones porque solo son útilies en la vista de home
     getTrendingMoviesPreview();
     getCategoriesPreview(); 
@@ -46,22 +52,35 @@ function homePage(){
 function categoryPage(){
     console.log('Category Page');
 
-    headerSection.classList.add('header-container--log');
-    // headerSection.style.background = '';
+    headerSection.classList.remove('header-container--log');
+    headerSection.style.background = '';
     arrowBtn.classList.remove('inactive'); 
-    arrowBtn.classList.add('header-arrow--white'); 
+    arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
-    searchForm.classList.remove('inactive');
-
+    searchForm.classList.add('inactive');
+    
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
 };
 function searchPage(){
     console.log('Searh Page');
 
+    headerSection.classList.remove('header-container--log');
+    headerSection.style.background = '';
+    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.remove('header-arrow--white');
+    headerTitle.classList.add('inactive');
+    headerCategoryTitle.classList.remove('inactive');
+    searchForm.classList.remove('inactive');
+    
+    trendingPreviewSection.classList.add('inactive');
+    categoriesPreviewSection.classList.add('inactive');
+    genericSection.classList.remove('inactive');
+    movieDetailSection.classList.add('inactive');
 
 };
 function trendsPage(){
@@ -69,29 +88,29 @@ function trendsPage(){
 
     headerSection.classList.remove('header-container--log');
     headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); //sí quiero que aparezca por tanto, le quito el inactive
-    arrowBtn.classList.remove('header-arrow--white'); 
+    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
     searchForm.classList.add('inactive');
-
+    
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
-    genericSection.classList.add('inactive');
-    movieDetailSection.classList.remove('inactive');
+    genericSection.classList.remove('inactive');
+    movieDetailSection.classList.add('inactive');
+   
 };
 function moviesDetailsPage(){
     console.log('Movie Page');
 
-    // coloco a cada propiedad a cada una de las secciones para la vista de details
-    headerSection.classList.remove('header-container--log');
-    headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); //sí quiero que aparezca por tanto, le quito el inactive
-    arrowBtn.classList.remove('header-arrow--white'); 
+    headerSection.classList.add('header-container--log');
+    // headerSection.style.background = '';
+    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.add('header-arrow--white'); 
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.add('inactive');
     searchForm.classList.add('inactive');
-
+    
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
