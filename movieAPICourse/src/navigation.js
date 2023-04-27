@@ -26,6 +26,11 @@ function navigator () { //esta función sirve para saber en que página estás a
     } else {
         homePage();
     }
+
+    //pongo los dos porque en algunos navegadores no son compatibles
+    document.scrollTop = 0; //para que el scroll por defecto esté arriba, en 0 px
+    document.documentElement.scrollTop = 0; 
+    // document.body.scrollTop = 0; //este es otra opción
 };
 
 function homePage(){
@@ -52,23 +57,24 @@ function homePage(){
 function categoryPage(){
     console.log('Category Page');
 
-    headerSection.classList.remove('header-container--log');
+    headerSection.classList.remove('header-container--long');
     headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.remove('inactive');
     arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
     searchForm.classList.add('inactive');
-    
+  
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
     //con location.hash.split('='); lo que hace es decolvernos un array que es partido por un igual, es decir, cada vez que haya un igual, la url, el hash, se dividirá. En mi caso, como las categorías url + ?#category=Action-28, dividirá por un lado url + category y por otro nombre de la categoria y su id que a su vez tengo que hacer otro location.hash.split('-') para separar el nombre del id
-    const [allURL, categoryData] = location.hash.split('=');
+    const [_, categoryData] = location.hash.split('=');
     const [categoryName, categoryId] = categoryData.split('-');
 
+    headerCategoryTitle.innerHTML = categoryName;
 
     getMoviesByCtaegory(categoryId);
 
@@ -76,14 +82,14 @@ function categoryPage(){
 function searchPage(){
     console.log('Searh Page');
 
-    headerSection.classList.remove('header-container--log');
+    headerSection.classList.remove('header-container--long');
     headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.remove('inactive');
     arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
     searchForm.classList.remove('inactive');
-    
+
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
@@ -110,14 +116,14 @@ function trendsPage(){
 function moviesDetailsPage(){
     console.log('Movie Page');
 
-    headerSection.classList.add('header-container--log');
+    headerSection.classList.add('header-container--long');
     // headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); 
-    arrowBtn.classList.add('header-arrow--white'); 
+    arrowBtn.classList.remove('inactive');
+    arrowBtn.classList.add('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.add('inactive');
     searchForm.classList.add('inactive');
-    
+
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
