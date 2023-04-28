@@ -1,12 +1,13 @@
 //aquí vas a poder modificar las distintas vistas y dependiendo de la acción que hagas te llevará a una u otra además puedes saber en todo momento en que página estás gracias al location.hash
 searchFormBtn.addEventListener('click', () => {
-    location.hash = 'search=';
+    location.hash = '#search=' + searchFormInput.value; //esto es para escuchar que es lo que han escrito los usuarios y ponerlo en la url
 });
 arrowBtn.addEventListener('click', () => {
-    location.hash = 'home';
+    history.back();
+    // location.hash = '#home';
 });
 trendingBtn.addEventListener('click', () => {
-    location.hash = 'trends';
+    location.hash = '#trends';
 });
 
 window.addEventListener('hashchange', navigator, false);
@@ -54,6 +55,7 @@ function homePage(){
     getTrendingMoviesPreview();
     getCategoriesPreview(); 
 };
+
 function categoryPage(){
     console.log('Category Page');
 
@@ -79,6 +81,7 @@ function categoryPage(){
     getMoviesByCtaegory(categoryId);
 
 };
+
 function searchPage(){
     console.log('Searh Page');
 
@@ -87,7 +90,7 @@ function searchPage(){
     arrowBtn.classList.remove('inactive');
     arrowBtn.classList.remove('header-arrow--white');
     headerTitle.classList.add('inactive');
-    headerCategoryTitle.classList.remove('inactive');
+    headerCategoryTitle.classList.add('inactive');
     searchForm.classList.remove('inactive');
 
     trendingPreviewSection.classList.add('inactive');
@@ -95,7 +98,11 @@ function searchPage(){
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    //['#search', 'busqueda'] esta parte la ponemos para saber que es lo que han buscado
+    const [_, query] = location.hash.split('=');
+    getMoviesBySearch(query);
 };
+
 function trendsPage(){
     console.log('Trends Page');
 
@@ -111,8 +118,12 @@ function trendsPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
+    headerCategoryTitle.innerHTML = 'Tendencias';
    
+    getTrendingMovies(); 
 };
+
 function moviesDetailsPage(){
     console.log('Movie Page');
 
@@ -128,5 +139,7 @@ function moviesDetailsPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
+    headerMenu.classList.add('inactive');
 
 };
+

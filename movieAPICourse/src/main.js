@@ -22,6 +22,10 @@ function createMovies(movies, container) {
     movies.forEach(movie => {
       const movieContainer = document.createElement('div');
       movieContainer.classList.add('movie-container');
+      //lo coloco aquí porque no funciona en otro lado ya que depende de que película esté trayendo la API, saldrá una info u otra
+      movieContainer.addEventListener('click', () => { //con el arrow le decimos que es lo que queremos hacer
+        location.hash = '#movie=' + movie.id;
+      });
   
       const movieImg = document.createElement('img');
       movieImg.classList.add('movie-img');
@@ -103,7 +107,30 @@ async function getMoviesByCtaegory (id) {
 
     createMovies(movies, genericSection);    
 
-}
+};
+
+async function getMoviesBySearch (query) {
+    const { data } = await api('search/movie', {
+        params: {
+            query,
+        },
+    });
+
+    const movies = data.results;
+
+    createMovies(movies, genericSection);    
+
+};
+
+async function getTrendingMovies () {
+
+    const { data } = await api('/trending/movie/day');
+    const movies = data.results; 
+
+    createMovies(movies, genericSection);
+
+
+};
 
 // getTrendingMoviesPreview();
 // getCategoriesPreview();
