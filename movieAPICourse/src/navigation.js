@@ -9,6 +9,10 @@ arrowBtn.addEventListener('click', () => {
 trendingBtn.addEventListener('click', () => {
     location.hash = '#trends';
 });
+// headerTitleMovie4U.addEventListener('click', () => {
+//     location.hash = '#home';
+// });
+// headerTitleMovie4U.addEventListener('click', location.reload());
 
 window.addEventListener('hashchange', navigator, false);
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -54,6 +58,7 @@ function homePage(){
     //llamamos aquí a estas funciones porque solo son útilies en la vista de home
     getTrendingMoviesPreview();
     getCategoriesPreview(); 
+    
 };
 
 function categoryPage(){
@@ -141,5 +146,9 @@ function moviesDetailsPage(){
     movieDetailSection.classList.remove('inactive');
     headerMenu.classList.add('inactive');
 
+    //[#movie, id]
+    const [_, movieId] = location.hash.split('=');
+
+    getMovieById(movieId);
 };
 

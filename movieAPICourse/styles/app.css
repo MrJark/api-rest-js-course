@@ -122,6 +122,7 @@ button {
 a {
     color: var(--primary);
     text-decoration: none;
+    margin-left: 6px;
 }
 
 /* Class Styles */
@@ -159,8 +160,8 @@ a {
     border-radius: 0px 0px 12px 12px;
 }
 .header-container--long {
-    background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+    background-image: url('');
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url();
     background-size: cover !important;
     height: 480px;
     position: fixed;
@@ -415,7 +416,7 @@ form {
 
 footer {
     background-color: var(--grey-1);
-    color: var(--primary);
+    color: var(--secondary);
     font-weight: var(--font-weight-text1);
     text-align: center;
     letter-spacing: 2px;
