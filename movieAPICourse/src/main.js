@@ -152,6 +152,12 @@ async function getMovieById(id) {
 
     createCategories(movie.genres, movieDetailCategoriesList);
 
+    getRelatedMoviesById(id);
 };
-// getTrendingMoviesPreview();
-// getCategoriesPreview();
+
+async function getRelatedMoviesById(id) {
+    const { data } = await api(`movie/${id}/recommendations`);
+    const relatedMovies = data.results;
+
+    createMovies(relatedMovies, relatedMoviesContainer);
+};
