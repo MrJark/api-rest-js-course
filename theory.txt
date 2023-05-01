@@ -37,4 +37,6 @@ Loading Spinners vs Loading Animations vs Loading Skeletons
  - Para las webs o apps existe el skeleton, es lo que hace youtube por ejemplo, es la carga, en elementos grises como las cajas, de donde van los elementos. Es la "previsualización" del html y que muestra en cuanto catga un elemento, ese elemento aunque los demás aun estén cargando, esto da la sensación de que hay algo cargando y que poco a poco va cargando más
 
 ---
+
+
  
