@@ -27,3 +27,12 @@ He copiado gran parte del código del ejemplo de Juan DC de Platzi para hacer el
 El código está aquí: https://github.com/platzi/curso-api-rest-javascript-practico/tree/5e56d4c09b3eaa8322ce01814ade000aa28a92ed
 
 ---
+
+Loading Spinners vs Loading Animations vs Loading Skeletons
+
+ - El spinner es la típica rueda que da vueltas pero que no te dice nada en sí. no te da datos que cuanto falta, que está cargando... 
+
+ - El animation, es la barra de carga que puede tener algún juego donde te pone una barrita, con el porcentaje que lleva cargado y para juegos está bien, se puede saber la cantidad de ____ que llevas de carga pero para una web...
+
+ - Para las webs o apps existe el skeleton, es lo que hace youtube por ejemplo, es la carga, en elementos grises como las cajas, de donde van los elementos. Es la "previsualización" del html y que muestra en cuanto catga un elemento, ese elemento aunque los demás aun estén cargando, esto da la sensación de que hay algo cargando y que poco a poco va cargando más
+ 
