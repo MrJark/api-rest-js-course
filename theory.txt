@@ -38,6 +38,7 @@ Loading Spinners vs Loading Animations vs Loading Skeletons
 
 ---
 
-
+Post para ver como hacer el loading skeleton
+https://uxdesign.cc/using-css-design-a-simple-skeleton-loader-57d884cd3547
 
  
