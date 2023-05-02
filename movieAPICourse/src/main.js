@@ -17,7 +17,7 @@ const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
 //la funciones aquí son para no repetirlas
 function createMovies(movies, container) { 
-    container.innerHTML = '';
+    container.innerHTML = ''; //para limpiar el html
   
     movies.forEach(movie => {
       const movieContainer = document.createElement('div');

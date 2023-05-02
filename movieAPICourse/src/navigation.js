@@ -4,6 +4,7 @@ searchFormBtn.addEventListener('click', () => {
 });
 arrowBtn.addEventListener('click', () => {
     history.back();
+    // container.innerHTML = '';
     // location.hash = '#home';
 });
 trendingBtn.addEventListener('click', () => {
@@ -131,6 +132,7 @@ function trendsPage(){
 
 function moviesDetailsPage(){
     console.log('Movie Page');
+    
 
     headerSection.classList.add('header-container--long');
     // headerSection.style.background = '';
@@ -150,5 +152,6 @@ function moviesDetailsPage(){
     const [_, movieId] = location.hash.split('=');
 
     getMovieById(movieId);
+    
 };
 
