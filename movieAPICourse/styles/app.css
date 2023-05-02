@@ -432,3 +432,12 @@ footer {
 .inactive {
     display: none;
 }
+
+/* Skeletoc Loading */
+
+/* .skeleton-loader {
+    width: 100%;
+  height: 15px;
+  display: block;
+  background: lightgray;
+} */
