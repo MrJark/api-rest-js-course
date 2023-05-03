@@ -12,6 +12,15 @@ const api = axios.create({
 
 //utils: urls and functions that to be reused
 
+//lazy loader para observar todo el html por eso solo tiene un argumento, entries, sino tendría 2, las options
+const lazyLoader = new IntersectionObserver( (entries) => {
+    entries.forEach((entry) => {
+        
+        const url = entry.target.getAttribute('data-img');
+        entry.target.setAttribute('src', url);
+    });
+});
+
 const urlAPI = 'https://api.themoviedb.org/3';
 const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
@@ -20,20 +29,26 @@ function createMovies(movies, container) {
     container.innerHTML = ''; //para limpiar el html
   
     movies.forEach(movie => {
-      const movieContainer = document.createElement('div');
-      movieContainer.classList.add('movie-container');
-      //lo coloco aquí porque no funciona en otro lado ya que depende de que película esté trayendo la API, saldrá una info u otra
-      movieContainer.addEventListener('click', () => { //con el arrow le decimos que es lo que queremos hacer
-        location.hash = '#movie=' + movie.id;
-      });
-  
-      const movieImg = document.createElement('img');
-      movieImg.classList.add('movie-img');
-      movieImg.setAttribute('alt', movie.title);
-      movieImg.setAttribute('src', url_poster_w300 + movie.poster_path,);
-  
-      movieContainer.appendChild(movieImg);
-      container.appendChild(movieContainer);
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('movie-container');
+        //lo coloco aquí porque no funciona en otro lado ya que depende de que película esté trayendo la API, saldrá una info u otra
+        movieContainer.addEventListener('click', () => { //con el arrow le decimos que es lo que queremos hacer
+            location.hash = '#movie=' + movie.id;
+        });
+    
+        const movieImg = document.createElement('img');
+        movieImg.classList.add('movie-img');
+        movieImg.setAttribute('alt', movie.title);
+        movieImg.setAttribute(
+            'data-img', //cambio src por data-img para hacer la función del lazy loading y que no me guarde la url en src sino en data-img
+            // 'src',
+            url_poster_w300 + movie.poster_path,
+        );
+
+            lazyLoader.observe(movieImg);//esto es para añadir cada una de las películas de createMovies al lazyLoader
+
+        movieContainer.appendChild(movieImg);
+        container.appendChild(movieContainer);
     });
 };
 
