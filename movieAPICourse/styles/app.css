@@ -417,7 +417,7 @@ form {
 
 footer {
     background-color: var(--grey-1);
-    color: var(--secondary);
+    color: var(--letter-light);
     font-weight: var(--font-weight-text1);
     text-align: center;
     letter-spacing: 2px;

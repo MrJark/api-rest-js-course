@@ -15,9 +15,10 @@ const api = axios.create({
 //lazy loader para observar todo el html por eso solo tiene un argumento, entries, sino tendría 2, las options
 const lazyLoader = new IntersectionObserver( (entries) => {
     entries.forEach((entry) => {
-        
-        const url = entry.target.getAttribute('data-img');
-        entry.target.setAttribute('src', url);
+        if (entry.isIntersecting) { //la pripiedad 'isIntersecting' permite saber si un objeto está siendo observado por el window por tanto, si es true, tiene que mostrar la img sino, no
+            const url = entry.target.getAttribute('data-img');//target es la propiedad de entry que nos da el data-img que queremos para colocarle la url cuando esté a la vista
+            entry.target.setAttribute('src', url);
+        }
     });
 });
 
@@ -25,7 +26,7 @@ const urlAPI = 'https://api.themoviedb.org/3';
 const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
 //la funciones aquí son para no repetirlas
-function createMovies(movies, container) { 
+function createMovies(movies, container, lazyLoad = false) {  // damos el LazyLoad como parámetro de entrada en faso
     container.innerHTML = ''; //para limpiar el html
   
     movies.forEach(movie => {
@@ -40,12 +41,14 @@ function createMovies(movies, container) {
         movieImg.classList.add('movie-img');
         movieImg.setAttribute('alt', movie.title);
         movieImg.setAttribute(
-            'data-img', //cambio src por data-img para hacer la función del lazy loading y que no me guarde la url en src sino en data-img
+            lazyLoad ? 'data-img' : 'src', //cambio src por data-img para hacer la función del lazy loading y que no me guarde la url en src sino en data-img
             // 'src',
             url_poster_w300 + movie.poster_path,
         );
 
+        if (lazyLoad) { // solo si el lazyLoad es true, se aplicará la función observe
             lazyLoader.observe(movieImg);//esto es para añadir cada una de las películas de createMovies al lazyLoader
+        };
 
         movieContainer.appendChild(movieImg);
         container.appendChild(movieContainer);
@@ -87,7 +90,7 @@ async function getTrendingMoviesPreview () {
     const { data } = await api('/trending/movie/day');
     const movies = data.results;
 
-    createMovies(movies, trendingMoviesPreviewList);
+    createMovies(movies, trendingMoviesPreviewList, true);//el true es del lazyLoading
 
     //SIN AXIOS
     // const res = await fetch (urlAPI + '/trending/movie/day' + API_KEY_all);
