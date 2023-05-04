@@ -46,6 +46,23 @@ function createMovies(movies, container, lazyLoad = false) {  // damos el LazyLo
             url_poster_w300 + movie.poster_path,
         );
 
+        //crear una imagen cuando no cargue el contenido
+        movieImg.addEventListener('error', () => {
+            movieImg.setAttribute(
+              'src',
+              'https://static.platzi.com/static/images/error/img404.png',
+            );
+            const movieTitleText = document.createTextNode(movieImg.getAttribute('alt'));
+            const movieTile = document.createElement('span');
+            movieContainer.appendChild(movieTile);
+            movieTile.appendChild(movieTitleText);
+        });
+
+        movieImg.onerror = () =>{
+            movieImg.setAttribute('src', `${imgErrorUrl}`);
+            movieImg.setAttribute('alt'), 'url-broke-img';
+        }
+
         if (lazyLoad) { // solo si el lazyLoad es true, se aplicará la función observe
             lazyLoader.observe(movieImg);//esto es para añadir cada una de las películas de createMovies al lazyLoader
         };
@@ -145,7 +162,7 @@ async function getTrendingMovies () {
     const { data } = await api('/trending/movie/day');
     const movies = data.results; 
 
-    createMovies(movies, genericSection);
+    createMovies(movies, genericSection, true);
 
 };
 

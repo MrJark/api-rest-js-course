@@ -10,9 +10,9 @@ arrowBtn.addEventListener('click', () => {
 trendingBtn.addEventListener('click', () => {
     location.hash = '#trends';
 });
-// headerTitleMovie4U.addEventListener('click', () => {
-//     location.hash = '#home';
-// });
+headerTitleMovie4U.addEventListener('click', () => {
+    location.hash = '#home';
+});
 // headerTitleMovie4U.addEventListener('click', location.reload());
 
 window.addEventListener('hashchange', navigator, false);
