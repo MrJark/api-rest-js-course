@@ -26,8 +26,15 @@ const urlAPI = 'https://api.themoviedb.org/3';
 const url_poster_w300 = 'https://image.tmdb.org/t/p/w300/';
 
 //la funciones aquí son para no repetirlas
-function createMovies(movies, container, lazyLoad = false) {  // damos el LazyLoad como parámetro de entrada en faso
-    container.innerHTML = ''; //para limpiar el html
+function createMovies( movies, container, 
+    { 
+        lazyLoad = false, // damos el LazyLoad como parámetro de entrada en faso
+        clean = true //queremos que mientra clean sea true nos limpie el html
+    } = {}
+) {  
+    if (clean) {
+        container.innerHTML = ''; //para limpiar el html
+    };
   
     movies.forEach(movie => {
         const movieContainer = document.createElement('div');
@@ -54,6 +61,10 @@ function createMovies(movies, container, lazyLoad = false) {  // damos el LazyLo
             );
             const movieTitleText = document.createTextNode(movieImg.getAttribute('alt'));
             const movieTile = document.createElement('span');
+            movieTile.style.fontWeight = 'bold';
+            // movieTile.style.display = 'flex';
+            // movieTile.style.alignItems = 'center';
+            // movieTile.style.justifyContent = 'center';
             movieContainer.appendChild(movieTile);
             movieTile.appendChild(movieTitleText);
         });
@@ -140,7 +151,7 @@ async function getMoviesByCtaegory (id) {
 
     const movies = data.results;
 
-    createMovies(movies, genericSection);    
+    createMovies(movies, genericSection, true);//lazyLoad    
 
 };
 
@@ -162,8 +173,42 @@ async function getTrendingMovies () {
     const { data } = await api('/trending/movie/day');
     const movies = data.results; 
 
-    createMovies(movies, genericSection, true);
+    createMovies(movies, genericSection, { lazyLoad: true, clean: true });
 
+    // const btnLoadMore = document.createElement('button'); //este botón es para que cargue más películas en la parte de trending
+    // btnLoadMore.innerText = 'Load more...';
+    // btnLoadMore.addEventListener('click', getPaginatedTrendingMovies);
+    // genericSection.appendChild(btnLoadMore);
+
+};
+
+async function getPaginatedTrendingMovies() {
+
+    const { 
+        scrollTop,
+        scrollHeight,
+        clientHeight
+      } = document.documentElement;
+
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
+      if (scrollIsBottom) {
+        page++;
+        const { data } = await api('/trending/movie/day', {
+            params: { //esto es así por AXIOS
+                page,
+            },
+        });
+        const movies = data.results; 
+    
+        createMovies(movies, genericSection, { lazyLoad: true, clean: false }); //no quiero que borre para que mantenga la paginación
+
+    };
+
+
+//     const btnLoadMore = document.createElement('button'); //este botón es para que cargue más películas en la parte de trending
+//     btnLoadMore.innerText = 'Load more...';
+//     btnLoadMore.addEventListener('click', getPaginatedTrendingMovies);
+//     genericSection.appendChild(btnLoadMore);
 };
 
 async function getMovieById(id) {

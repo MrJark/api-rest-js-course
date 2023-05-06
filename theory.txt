@@ -41,4 +41,26 @@ Loading Spinners vs Loading Animations vs Loading Skeletons
 Post para ver como hacer el loading skeleton
 https://uxdesign.cc/using-css-design-a-simple-skeleton-loader-57d884cd3547
 
- 
+---
+
+Para la implementación el infinito scroll debes tener en cuenta: 
+
+    1- document.documentElement.clientHeight: Devuelve el alto de la pantalla del usuario, la altura VISIBLE TOTAL del elemento documentElement en pixeles incluyendo el padding del elemento pero no el border, ni el margin del elemento ni la barra de dezplazamiento horizontal del navegador.
+
+    Como clientHeight NO devuelve la altura total de un elemento sino la altura visible del elemento, entonces si el tamaño de pantalla del dispositivo se reduce o si el tamaño de la ventana del navegador se reduce entonces la altura visible del elemento tambien se reducira por lo tanto el valor de .clientHeight se reducira y visceversa.
+
+    2- document.documentElement.scrollTop: Devuelve el numero de pixeles desplazados al hacer scroll vertical en el elemento documentElement, cuanto te has desplazado en ese momento. Si no se ha desplazado nada, está en el top, ese scroll es 0
+
+    TENER EN CUENTA QUE SI EL TAMAÑO DE PANTALLA DEL DISPOSITIVO SE REDUCE O SI EL TAMAÑO DE LA VENTANA DEL NAVEGADOR SE REDUCE ENTONCES EL VALOR DE clientHeight SE REDUCIRA Y EL VALOR MAXIMO DE scrollTop AUMENTARA YA QUE AL REDUCIRSE LA VENTANA TOCA HACER MAS SCROLL PARA RECORRER EL ELEMENTO documentElement. SI EL TAMAÑO DE LA VENTANA DEL NAVEGADOR AUMENTA ENTONCES OCURRE LO CONTRARIO
+
+    3- document.documentElement.scrollHeight: es cuanto scroll podemos hacer en el dispositivo. Devuelve la altura total del elemento documentElement en pixeles incluyendo el padding del elemento pero no el border, ni el margin del elemento ni la barra de dezplazamiento horizontal del navegador.
+
+    Si analizamos nos damos cuenta que la altura total del elemento documentElement es igual a la altura visible de dicho elemento mas el maximo de pixeles desplazados al hacer scroll vertical en dicho elemento, osea, 
+    documentElement.scrollHeight = documentElement.clientHeight + documentElement.scrollTop - 15px cuando el valor de scrollTop es el maximo
+    Es decir:
+        scrollHeight = clientHeight + scrollTop - 15
+    Estos 15 px que se le restan es proque a veces los navegadores no 'pueden' bajar hasta el bottom total
+
+    Por tanto, para que se de la pagination la validación que tienees que hacer es:
+
+        scrollHeight >= clientHeight + scrollTop - 15

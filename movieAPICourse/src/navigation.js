@@ -1,3 +1,6 @@
+let page = 1; //para la pagination
+let infinitesScroll; //para pagination
+
 //aquí vas a poder modificar las distintas vistas y dependiendo de la acción que hagas te llevará a una u otra además puedes saber en todo momento en que página estás gracias al location.hash
 searchFormBtn.addEventListener('click', () => {
     location.hash = '#search=' + searchFormInput.value; //esto es para escuchar que es lo que han escrito los usuarios y ponerlo en la url
@@ -17,9 +20,15 @@ headerTitleMovie4U.addEventListener('click', () => {
 
 window.addEventListener('hashchange', navigator, false);
 window.addEventListener('DOMContentLoaded', navigator, false);
+window.addEventListener('scroll', infinitesScroll, {passive: false});
 
 function navigator () { //esta función sirve para saber en que página estás aterrizado
     console.log(location);
+
+    if (infinitesScroll) {
+        window.removeEventListener('scroll', infinitesScroll, {passive: false});
+        infinitesScroll = undefined;
+    }
     
     if(location.hash.startsWith('#trends')) {
         trendsPage();
@@ -37,6 +46,10 @@ function navigator () { //esta función sirve para saber en que página estás a
     document.scrollTop = 0; //para que el scroll por defecto esté arriba, en 0 px
     document.documentElement.scrollTop = 0; 
     // document.body.scrollTop = 0; //este es otra opción
+
+    if (infinitesScroll) {
+        window.addEventListener('scroll', infinitesScroll, {passive: false})
+    }
 };
 
 function homePage(){
@@ -109,27 +122,6 @@ function searchPage(){
     getMoviesBySearch(query);
 };
 
-function trendsPage(){
-    console.log('Trends Page');
-
-    headerSection.classList.remove('header-container--log');
-    headerSection.style.background = '';
-    arrowBtn.classList.remove('inactive'); 
-    arrowBtn.classList.remove('header-arrow--white');
-    headerTitle.classList.add('inactive');
-    headerCategoryTitle.classList.remove('inactive');
-    searchForm.classList.add('inactive');
-    
-    trendingPreviewSection.classList.add('inactive');
-    categoriesPreviewSection.classList.add('inactive');
-    genericSection.classList.remove('inactive');
-    movieDetailSection.classList.add('inactive');
-
-    headerCategoryTitle.innerHTML = 'Tendencias';
-   
-    getTrendingMovies(); 
-};
-
 function moviesDetailsPage(){
     console.log('Movie Page');
     
@@ -155,3 +147,25 @@ function moviesDetailsPage(){
     
 };
 
+function trendsPage(){
+    console.log('Trends Page');
+
+    headerSection.classList.remove('header-container--log');
+    headerSection.style.background = '';
+    arrowBtn.classList.remove('inactive'); 
+    arrowBtn.classList.remove('header-arrow--white');
+    headerTitle.classList.add('inactive');
+    headerCategoryTitle.classList.remove('inactive');
+    searchForm.classList.add('inactive');
+    
+    trendingPreviewSection.classList.add('inactive');
+    categoriesPreviewSection.classList.add('inactive');
+    genericSection.classList.remove('inactive');
+    movieDetailSection.classList.add('inactive');
+
+    headerCategoryTitle.innerHTML = 'Tendencias';
+   
+    getTrendingMovies(); 
+
+    infinitesScroll = getPaginatedTrendingMovies;
+};
