@@ -64,6 +64,7 @@ font-family: 'Ubuntu', sans-serif; */
 }
 html {
     background: var(--primary-dark-3-html);
+    width: 390px;
 }
 body {
     margin: 0;
@@ -385,7 +386,7 @@ a {
 .relatedMovies-container {
     margin-top: 24px;
     height: 216px;
-    width: 390px;
+    width: 390px !important ;
 }
 .relatedMovies-title {
     margin-bottom: 16px;
