@@ -1,3 +1,4 @@
+let maxPage; //para la paginaion, es necesario para que no nos de error cuando los U hagan el scroll máx
 let page = 1; //para la pagination
 let infinitesScroll; //para pagination
 
