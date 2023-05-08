@@ -150,9 +150,39 @@ async function getMoviesByCtaegory (id) {
     });
 
     const movies = data.results;
+    maxPage = data.total_pages;
 
-    createMovies(movies, genericSection, true);//lazyLoad    
+    createMovies(movies, genericSection, { lazyLoad: true });    
 
+};
+
+function getPaginatedMoviesByCategory(id) {
+    return async function () { //es así esta función porque tiene un parámetro y al llamarla en navigation, la estaríamos ejecutando y para evitar eso, ponemos el return y la función async para que se ejecute 
+        const { 
+            scrollTop,
+            scrollHeight,
+            clientHeight
+          } = document.documentElement;
+    
+        const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
+    
+        const pageIsNotMax = page < maxPage;
+        
+        if (scrollIsBottom && pageIsNotMax) {
+            page++;
+            const { data } = await api('discover/movie', {
+                params: {
+                    with_genres: id,
+                    page,
+                },
+            });
+        
+            const movies = data.results;
+        
+            createMovies(movies, genericSection, { lazyLoad: true, clean: false }); //no quiero que borre para que mantenga la paginación
+    
+        };
+    }
 };
 
 async function getMoviesBySearch (query) {
@@ -163,9 +193,39 @@ async function getMoviesBySearch (query) {
     });
 
     const movies = data.results;
+    maxPage = data.total_pages;
 
     createMovies(movies, genericSection);    
 
+};
+
+function getPaginatedMoviesBySearch(query) {
+    return async function () { //es así esta función porque tiene un parámetro y al llamarla en navigation, la estaríamos ejecutando y para evitar eso, ponemos el return y la función async para que se ejecute 
+        const { 
+            scrollTop,
+            scrollHeight,
+            clientHeight
+          } = document.documentElement;
+    
+        const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
+    
+        const pageIsNotMax = page < maxPage;
+        
+          if (scrollIsBottom && pageIsNotMax) {
+            page++;
+            const { data } = await api('search/movie', {
+                params: {
+                    query,
+                    page,
+                },
+            });
+        
+            const movies = data.results;
+        
+            createMovies(movies, genericSection, { lazyLoad: true, clean: false }); //no quiero que borre para que mantenga la paginación
+    
+        };
+    }
 };
 
 async function getTrendingMovies () {
@@ -194,7 +254,7 @@ async function getPaginatedTrendingMovies() {
     const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
 
     const pageIsNotMax = page < maxPage;
-    
+
       if (scrollIsBottom && pageIsNotMax) {
         page++;
         const { data } = await api('/trending/movie/day', {
