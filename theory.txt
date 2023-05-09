@@ -64,3 +64,26 @@ Para la implementación el infinito scroll debes tener en cuenta:
     Por tanto, para que se de la pagination la validación que tienees que hacer es:
 
         scrollHeight >= clientHeight + scrollTop - 15
+
+---
+
+Local Storage vs. API Real
+
+    LocalStorage:
+
+        - Mas rápido
+        - Depende del navegador
+        - Independiente del API
+        - Control completo del frontend
+        - No requieren autentication (podría ser malo)
+        - No permite compartir o recuperar sesion
+        - NO recomendable para datos privados
+
+    API: 
+
+        - Más lento
+        - No hay control completo del backend
+        - Requiere autentication
+        - Permite compartir o recuperar sesión 
+        - Para datos privados
+    

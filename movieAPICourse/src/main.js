@@ -40,9 +40,7 @@ function createMovies( movies, container,
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
         //lo coloco aquí porque no funciona en otro lado ya que depende de que película esté trayendo la API, saldrá una info u otra
-        movieContainer.addEventListener('click', () => { //con el arrow le decimos que es lo que queremos hacer
-            location.hash = '#movie=' + movie.id;
-        });
+        
     
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
@@ -52,6 +50,9 @@ function createMovies( movies, container,
             // 'src',
             url_poster_w300 + movie.poster_path,
         );
+        movieImg.addEventListener('click', () => { //con el arrow le decimos que es lo que queremos hacer
+            location.hash = '#movie=' + movie.id;
+        });
 
         //crear una imagen cuando no cargue el contenido
         movieImg.addEventListener('error', () => {
@@ -72,13 +73,20 @@ function createMovies( movies, container,
         movieImg.onerror = () =>{
             movieImg.setAttribute('src', `${imgErrorUrl}`);
             movieImg.setAttribute('alt'), 'url-broke-img';
-        }
+        };
+
+        const movieBtn = document.createElement('button'); //para poner el botón de liked a las películas
+        movieBtn.classList.add('movie-btn');
+        movieBtn.addEventListener('click', () => {
+            movieBtn.classList.toggle('movie-btn--liked');
+        });
 
         if (lazyLoad) { // solo si el lazyLoad es true, se aplicará la función observe
             lazyLoader.observe(movieImg);//esto es para añadir cada una de las películas de createMovies al lazyLoader
         };
 
         movieContainer.appendChild(movieImg);
+        movieContainer.appendChild(movieBtn);
         container.appendChild(movieContainer);
     });
 };
