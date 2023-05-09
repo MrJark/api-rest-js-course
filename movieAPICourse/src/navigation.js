@@ -99,7 +99,7 @@ function categoryPage(){
     headerCategoryTitle.innerHTML = categoryName;
 
     getMoviesByCtaegory(categoryId);
-    infinitesScroll = getPaginatedMoviesByCategory(id);
+    infinitesScroll = getPaginatedMoviesByCategory(categoryId);
 
 };
 
