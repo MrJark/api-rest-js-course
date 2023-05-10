@@ -162,14 +162,14 @@ a {
 /* El siguiente es para agregarle el contenido al btn */
 .movie-btn::before { 
     content: '🩵';
-    font-size: 20px;
+    font-size: 19px;
 }
 .movie-btn--liked {
     background: var(--primary);
 }
 .movie-btn--liked::before {
     content: '🩷';
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .categoriesPreview-list, .categories-list {

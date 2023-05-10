@@ -1,4 +1,4 @@
-
+//DATA
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
@@ -8,6 +8,33 @@ const api = axios.create({
         'api_key': API_KEY_n //tenía que poner solo los números y no " ?api_key= " al inicio ya que pre supone que va el api_key
     },
 });
+
+function likedMovieList () {
+    const item = JSON.parse(localStorage.getItem('liked_movies'));
+    let movies;
+
+    if (item) {
+        movies = item;
+    } else {
+        movies = {};
+    }
+
+    return movies;
+}
+
+function likeMovie(movie) { //para guardar las películas en local storage
+    const likedMovies = likedMovieList();
+
+    if (likedMovies[movie.id]) {
+        likedMovies[movie.id] = undefined;
+        console.log('La película está en LS');
+    } else {
+        likedMovies[movie.id] = movie;
+        console.log('La película no está en LS');
+    }
+
+    localStorage.setItem('liked_movies',JSON.stringify(likedMovies)); //el JSON.stringify es para transformar objetos en strings ya que el LS solo lee strings. Para transformas los strings a objetos es con la propiedad JSON.parse
+}
 
 
 //utils: urls and functions that to be reused
@@ -78,7 +105,8 @@ function createMovies( movies, container,
         const movieBtn = document.createElement('button'); //para poner el botón de liked a las películas
         movieBtn.classList.add('movie-btn');
         movieBtn.addEventListener('click', () => {
-            movieBtn.classList.toggle('movie-btn--liked');
+            movieBtn.classList.toggle('movie-btn--liked');//para alternar las clases
+            likeMovie(movie);
         });
 
         if (lazyLoad) { // solo si el lazyLoad es true, se aplicará la función observe
