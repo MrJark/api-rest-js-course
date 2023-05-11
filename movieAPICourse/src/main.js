@@ -27,10 +27,8 @@ function likeMovie(movie) { //para guardar las películas en local storage
 
     if (likedMovies[movie.id]) {
         likedMovies[movie.id] = undefined;
-        console.log('La película está en LS');
     } else {
         likedMovies[movie.id] = movie;
-        console.log('La película no está en LS');
     }
 
     localStorage.setItem('liked_movies',JSON.stringify(likedMovies)); //el JSON.stringify es para transformar objetos en strings ya que el LS solo lee strings. Para transformas los strings a objetos es con la propiedad JSON.parse
@@ -104,6 +102,7 @@ function createMovies( movies, container,
 
         const movieBtn = document.createElement('button'); //para poner el botón de liked a las películas
         movieBtn.classList.add('movie-btn');
+        likedMovieList()[movie.id] && movieBtn.classList.add('movie-btn--liked');// esto es un condicional para evaluar si la peli está en el LS, si está el id o si tiene la clase --liked
         movieBtn.addEventListener('click', () => {
             movieBtn.classList.toggle('movie-btn--liked');//para alternar las clases
             likeMovie(movie);
@@ -341,3 +340,10 @@ async function getRelatedMoviesById(id) {
 
     createMovies(relatedMovies, relatedMoviesContainer);
 };
+
+function getLikedMovies() { //es para consumir el LocalStorage
+    const likedMovies = likedMovieList();
+    const moviesArray = Object.values(likedMovies); //este Object.value nos permite sacar de los objetos los valores y ponerlos en un array -> Object = { key: 'value', key: 'value' }
+
+    createMovies(moviesArray, likedMovieLisArticle, { lazyLoad: true, clean: true});
+} 

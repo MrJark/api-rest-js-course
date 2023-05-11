@@ -14,6 +14,7 @@ const trendingMoviesPreviewList = $ ('.trendingPreview-movieList');
 const categoriesPreviewList = $ ('.categoriesPreview-list');
 const movieDetailCategoriesList = $ ('#movieDetail .categories-list');
 const relatedMoviesContainer = $ ('.relatedMovies-scrollContainer');
+const likedMoviesSection = $ ('#liked');
 
 // Elements
 const headerTitle = $ ('.header-title');
@@ -28,6 +29,8 @@ const trendingBtn = $ ('.trendingPreview-btn');
 const movieDetailTitle = $ ('.movieDetail-title');
 const movieDetailDescription = $ ('.movieDetail-description');
 const movieDetailScore = $ ('.movieDetail-score');
+
+const likedMovieListArticle = $ ('.liked-movieList');
 
 const headerTitleMovie4U = $ ('#header-title--movie4u');//he intentado colocarlo para cada vez que le de al título, me recarge la página y no tenga que estar con cmd+r
 
