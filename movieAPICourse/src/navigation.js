@@ -23,6 +23,7 @@ window.addEventListener('hashchange', navigator, false);
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('scroll', infinitesScroll, {passive: false});
 
+
 function navigator () { //esta función sirve para saber en que página estás aterrizado
     console.log(location);
 

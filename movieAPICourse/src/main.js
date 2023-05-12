@@ -32,6 +32,11 @@ function likeMovie(movie) { //para guardar las películas en local storage
     }
 
     localStorage.setItem('liked_movies',JSON.stringify(likedMovies)); //el JSON.stringify es para transformar objetos en strings ya que el LS solo lee strings. Para transformas los strings a objetos es con la propiedad JSON.parse
+    // if (Location.hash == '') {
+    //     getLikedMovies();
+    //     getTrendingMoviesPreview();
+    //     homePage();
+    // }
 }
 
 
@@ -106,6 +111,7 @@ function createMovies( movies, container,
         movieBtn.addEventListener('click', () => {
             movieBtn.classList.toggle('movie-btn--liked');//para alternar las clases
             likeMovie(movie);
+            getLikedMovies(); //añadiendo esta función, se añaden automá. las películas a favs
         });
 
         if (lazyLoad) { // solo si el lazyLoad es true, se aplicará la función observe
@@ -345,6 +351,5 @@ function getLikedMovies() { //es para consumir el LocalStorage
     const likedMovies = likedMovieList();
     const moviesArray = Object.values(likedMovies); //este Object.value nos permite sacar de los objetos los valores y ponerlos en un array -> Object = { key: 'value', key: 'value' }
 
-    console.log(likedMovies);
     createMovies(moviesArray, likedMovieListArticle, { lazyLoad: true, clean: true});
 } 
