@@ -73,7 +73,7 @@ function homePage(){
     //llamamos aquí a estas funciones porque solo son útilies en la vista de home
     getTrendingMoviesPreview();
     getCategoriesPreview(); 
-    
+    getLikedMovies();
 };
 
 function categoryPage(){

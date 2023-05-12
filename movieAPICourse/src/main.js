@@ -345,5 +345,6 @@ function getLikedMovies() { //es para consumir el LocalStorage
     const likedMovies = likedMovieList();
     const moviesArray = Object.values(likedMovies); //este Object.value nos permite sacar de los objetos los valores y ponerlos en un array -> Object = { key: 'value', key: 'value' }
 
-    createMovies(moviesArray, likedMovieLisArticle, { lazyLoad: true, clean: true});
+    console.log(likedMovies);
+    createMovies(moviesArray, likedMovieListArticle, { lazyLoad: true, clean: true});
 } 
