@@ -1,6 +1,7 @@
 let maxPage; //para la paginaion, es necesario para que no nos de error cuando los U hagan el scroll máx
 let page = 1; //para la pagination
 let infinitesScroll; //para pagination
+let lang = 'en';
 
 //aquí vas a poder modificar las distintas vistas y dependiendo de la acción que hagas te llevará a una u otra además puedes saber en todo momento en que página estás gracias al location.hash
 searchFormBtn.addEventListener('click', () => {
@@ -23,6 +24,10 @@ window.addEventListener('hashchange', navigator, false);
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('scroll', infinitesScroll, {passive: false});
 
+// languaje.addEventListener('click', () => {
+//     lang = languaje.value;
+//     homePage();
+// });
 
 function navigator () { //esta función sirve para saber en que página estás aterrizado
     console.log(location);
@@ -143,7 +148,7 @@ function moviesDetailsPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
-    headerMenu.classList.add('inactive');
+    // headerMenu.classList.add('inactive');
 
     //[#movie, id]
     const [_, movieId] = location.hash.split('=');

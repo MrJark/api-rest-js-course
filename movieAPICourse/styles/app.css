@@ -516,6 +516,17 @@ footer {
     max-height: 187.5px;
 }
 
+/* Languajes */
+.selector-languajes {
+    width: 90px;
+    height: 30px;
+    background: var(--secondary-light-1);
+    color: var(--letter-dark);
+    font-weight: var(--font-weight-title2);
+    border-radius: 12px;
+}
+
+
 /* Animations */
 @keyframes loading-skeleton {
     0%, 100% {
