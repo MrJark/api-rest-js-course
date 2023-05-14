@@ -1,7 +1,7 @@
 let maxPage; //para la paginaion, es necesario para que no nos de error cuando los U hagan el scroll máx
 let page = 1; //para la pagination
 let infinitesScroll; //para pagination
-let lang = 'en';
+// let lang = 'en';
 
 //aquí vas a poder modificar las distintas vistas y dependiendo de la acción que hagas te llevará a una u otra además puedes saber en todo momento en que página estás gracias al location.hash
 searchFormBtn.addEventListener('click', () => {
@@ -20,8 +20,8 @@ headerTitleMovie4U.addEventListener('click', () => {
 });
 // headerTitleMovie4U.addEventListener('click', location.reload());
 
-window.addEventListener('hashchange', navigator, false);
-window.addEventListener('DOMContentLoaded', navigator, false);
+window.addEventListener('hashchange', browsing, false);
+window.addEventListener('DOMContentLoaded', browsing, false);
 window.addEventListener('scroll', infinitesScroll, {passive: false});
 
 // languaje.addEventListener('click', () => {
@@ -29,7 +29,7 @@ window.addEventListener('scroll', infinitesScroll, {passive: false});
 //     homePage();
 // });
 
-function navigator () { //esta función sirve para saber en que página estás aterrizado
+function browsing () { //esta función sirve para saber en que página estás aterrizado
     console.log(location);
 
     if (infinitesScroll) {
@@ -75,7 +75,8 @@ function homePage(){
     categoriesPreviewSection.classList.remove('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
-    
+    likedMovieContainer.classList.remove('inactive');
+
     //llamamos aquí a estas funciones porque solo son útilies en la vista de home
     getTrendingMoviesPreview();
     getCategoriesPreview(); 
@@ -97,6 +98,7 @@ function categoryPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+    likedMovieContainer.classList.add('inactive');
 
     //con location.hash.split('='); lo que hace es decolvernos un array que es partido por un igual, es decir, cada vez que haya un igual, la url, el hash, se dividirá. En mi caso, como las categorías url + ?#category=Action-28, dividirá por un lado url + category y por otro nombre de la categoria y su id que a su vez tengo que hacer otro location.hash.split('-') para separar el nombre del id
     const [_, categoryData] = location.hash.split('=');
@@ -125,6 +127,8 @@ function searchPage(){
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
 
+    likedMovieContainer.classList.add('inactive');
+
     //['#search', 'busqueda'] esta parte la ponemos para saber que es lo que han buscado
     const [_, query] = location.hash.split('=');
     getMoviesBySearch(query);
@@ -149,6 +153,8 @@ function moviesDetailsPage(){
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
     // headerMenu.classList.add('inactive');
+    likedMovieContainer.classList.add('inactive');
+
 
     //[#movie, id]
     const [_, movieId] = location.hash.split('=');
@@ -172,6 +178,8 @@ function trendsPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+    likedMovieContainer.classList.add('inactive');
+
 
     headerCategoryTitle.innerHTML = 'Tendencias';
    

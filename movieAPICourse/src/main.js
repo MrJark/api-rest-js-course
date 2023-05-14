@@ -5,7 +5,8 @@ const api = axios.create({
         'Content-Type': 'application/json;charset=utf-8',
     },
     params: {
-        'api_key': API_KEY_n //tenía que poner solo los números y no " ?api_key= " al inicio ya que pre supone que va el api_key
+        'api_key': API_KEY_n, //tenía que poner solo los números y no " ?api_key= " al inicio ya que pre supone que va el api_key
+        
     },
 });
 
